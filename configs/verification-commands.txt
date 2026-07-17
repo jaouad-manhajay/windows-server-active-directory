@@ -1,1 +1,6 @@
-
+hostname
+ipconfig /all
+systeminfo
+whoami
+echo %logonserver%
+echo %userdomain%

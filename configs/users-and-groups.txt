@@ -1,1 +1,14 @@
+Organizational Units:
+- OU_Doctors
+- OU_Nurses
+- OU_Admin
+- OU_Stagers
 
+Security Groups:
+- Doctors
+- Nurses
+- Admin
+- Stagers
+
+Users:
+- Jaouad

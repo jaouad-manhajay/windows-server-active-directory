@@ -1,1 +1,5 @@
-
+Server Name: ADM-Cont-1
+IP Address: 10.1.10.100
+Subnet Mask: 255.255.255.0
+Gateway: 10.1.10.1
+Preferred DNS: 10.1.10.100

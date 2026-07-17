@@ -1,36 +1,213 @@
-# 🖥️ Windows Server 2019 Active Directory Domain Services (AD DS)
+<div align="center">
 
-## 📌 Project Overview
+# Windows Server 2019 Active Directory Lab
 
-This project demonstrates the deployment and configuration of Active Directory Domain Services (AD DS) on Windows Server 2019 in a virtual lab environment. The lab includes domain controller installation, organizational units (OUs), users, groups, and client domain joining.
+Active Directory Domain Services (AD DS) deployment using Windows Server 2019 and Windows 10.
 
----
+<img src="topology/network-topology.png" alt="Network Topology" width="900">
 
-## 🎯 Objectives
+<br>
 
-The main objectives of this lab are:
+![Windows Server](https://img.shields.io/badge/Windows_Server-2019-0078D6?style=for-the-badge&logo=windows)
+![AD DS](https://img.shields.io/badge/AD_DS-Configured-success?style=for-the-badge)
+![DNS](https://img.shields.io/badge/DNS-Configured-success?style=for-the-badge)
+![Domain](https://img.shields.io/badge/Domain-LHAMD.ma-blue?style=for-the-badge)
 
-- Install Active Directory Domain Services (AD DS)
-- Promote the server to a Domain Controller
-- Create a new Active Directory domain
-- Create Organizational Units (OUs)
-- Create security groups and user accounts
-- Join Windows client computers to the domain
-- Verify Active Directory functionality
+</div>
 
 ---
 
-## 🖥️ Lab Environment
+## 📋 Table of Contents
 
-| Component | Details |
-|----------|---------|
-| Operating System | Windows Server 2019 |
-| Virtualization | VMware Workstation |
+- [Project Overview](#-project-overview)
+- [Lab Architecture](#-lab-architecture)
+- [Features](#-features)
+- [Repository Structure](#-repository-structure)
+- [Deployment Workflow](#-deployment-workflow)
+- [Verification](#-verification)
+- [Screenshots](#-screenshots)
+- [Documentation](#-documentation)
+- [Technologies Used](#-technologies-used)
+
+---
+
+## 🎯 Project Overview
+
+This project demonstrates the deployment and configuration of a complete Microsoft Active Directory environment using Windows Server 2019.
+
+The infrastructure provides:
+
+- Active Directory Domain Services (AD DS)
+- DNS Services
+- Centralized Authentication
+- User and Group Management
+- Organizational Units (OU)
+- Windows 10 Domain Integration
+
+---
+
+## 🏗️ Lab Architecture
+
+| Component | Configuration |
+|------------|---------------|
+| Domain | LHAMD.ma |
+| Domain Controller | ADM-Cont-1 |
+| OS | Windows Server 2019 |
+| Server IP | 10.1.10.100 |
+| DNS Server | 10.1.10.100 |
+| Client | CLIENT01 |
 | Client OS | Windows 10 |
-| Domain Name | LHAMD.ma |
-| Server Name | ADM-Cont-1 |
-| Server Role | Active Directory Domain Services (AD DS) |
-| Network | NAT |
+| Network | 10.1.10.0/24 |
+
+---
+
+## 🚀 Features
+
+<details>
+<summary><b>Active Directory Services</b></summary>
+
+- Domain Controller Deployment
+- Active Directory Domain Services Installation
+- Organizational Units Creation
+- User Management
+- Security Groups
+
+</details>
+
+<details>
+<summary><b>DNS Configuration</b></summary>
+
+- DNS Service Installation
+- Domain Name Resolution
+- Client DNS Integration
+
+</details>
+
+<details>
+<summary><b>Client Integration</b></summary>
+
+- Windows 10 Domain Join
+- Domain User Authentication
+- DNS Verification
+
+</details>
+
+---
+
+## 📂 Repository Structure
+
+```text
+windows-server-active-directory
+│
+├── configs/
+│   ├── domain-information.txt
+│   ├── ip-configuration.txt
+│   ├── users-and-groups.txt
+│   └── verification-commands.txt
+│
+├── docs/
+│   ├── Installation-Guide.md
+│   └── Lab-Report.md
+│
+├── screenshots/
+│   ├── 01-windows-server-installation.png
+│   ├── ...
+│   └── 17-server-manager.png
+│
+├── topology/
+│   ├── network-topology.md
+│   └── network-topology.png
+│
+└── README.md
+```
+
+---
+
+## 🔄 Deployment Workflow
+
+```text
+Windows Server Installation
+          │
+          ▼
+Static IP Configuration
+          │
+          ▼
+Server Rename
+          │
+          ▼
+AD DS Installation
+          │
+          ▼
+Domain Controller Promotion
+          │
+          ▼
+LHAMD.ma Domain Creation
+          │
+          ▼
+OU & Security Groups
+          │
+          ▼
+User Creation
+          │
+          ▼
+Windows 10 Domain Join
+          │
+          ▼
+Verification & Testing
+```
+
+---
+
+## ✅ Verification
+
+```powershell
+hostname
+
+ipconfig /all
+
+whoami
+
+echo %logonserver%
+
+nslookup LHAMD.ma
+
+ping ADM-Cont-1
+
+systeminfo
+```
+
+Additional commands:
+
+```text
+configs/verification-commands.txt
+```
+
+---
+
+## 📸 Screenshots
+
+This repository includes 17 screenshots covering:
+
+- Windows Server Installation
+- Static IP Configuration
+- AD DS Installation
+- Domain Controller Promotion
+- Organizational Units
+- Security Groups
+- User Creation
+- Domain Join
+- Verification Commands
+
+---
+
+## 📚 Documentation
+
+| File | Description |
+|--------|-------------|
+| docs/Installation-Guide.md | Step-by-step installation |
+| docs/Lab-Report.md | Full lab report |
+| topology/network-topology.md | Network design |
+| configs/* | Configuration references |
 
 ---
 
@@ -38,97 +215,25 @@ The main objectives of this lab are:
 
 - Windows Server 2019
 - Active Directory Domain Services
-- DNS
-- Organizational Units (OU)
-- Users & Groups
-- VMware Workstation
+- DNS Server
 - Windows 10
-
----
-
-## 🌐 Network Topology
-
-The lab consists of:
-
-- 1 Windows Server 2019 (Domain Controller)
-- 1 Windows 10 Client
-- VMware NAT Network
-
-*A network topology diagram will be added later.*
-
----
-
-## ⚙️ Configuration Steps
-
-1. Install Windows Server 2019
-2. Configure the server hostname
-3. Configure a static IP address
-4. Install Active Directory Domain Services
-5. Promote the server to a Domain Controller
-6. Create a new forest (LHAMD.ma)
-7. Configure Organizational Units (OUs)
-8. Create users and security groups
-9. Join Windows 10 client to the domain
-
----
-
-## ✅ Verification
-
-The following checks were completed successfully:
-
-- Active Directory installed successfully
-- Domain Controller operational
-- Domain created successfully
-- Users and groups created
-- Organizational Units configured
-- Windows client joined to the domain
-
----
-
-## 📷 Screenshots
-
-The following screenshots will be added:
-
-- Windows Server Installation
-- Static IP Configuration
-- AD DS Installation
-- Domain Controller Promotion
-- Organizational Units
-- Users and Groups
-- Windows Client Domain Join
-
----
-
-## 📚 What I Learned
-
-Through this lab, I learned how to:
-
-- Deploy Active Directory Domain Services
-- Configure a Domain Controller
-- Manage Organizational Units
-- Create and manage users and groups
-- Join client computers to an Active Directory domain
-- Verify AD DS functionality
-
----
-
-## 🚀 Future Improvements
-
-- Configure Group Policy Objects (GPO)
-- Install DNS Server
-- Install DHCP Server
-- Configure File Server
-- Add Roaming Profiles
+- VMware Workstation
+- PowerShell
 
 ---
 
 ## 👨‍💻 Author
 
-**Jaouad Manhajay**
+**Jawad Manhajay**
 
-Junior System & Network Administrator
+System & Network Administration Student
 
-Rabat, Morocco
+GitHub: https://github.com/jaouad-manhajay
 
-LinkedIn:
-https://www.linkedin.com/in/jaouad-manhajay-032503379
+---
+
+<div align="center">
+
+⭐ Star this repository if you found it useful.
+
+</div>
